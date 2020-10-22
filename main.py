@@ -294,8 +294,8 @@ def main():
     dp = updater.dispatcher
 
     dp.add_handler(CommandHandler('start', start))
-    dp.add_handler(CommandHandler('encode', encode))
-    dp.add_handler(CommandHandler('decode', decode))
+    dp.add_handler(CommandHandler('b64e', encode))
+    dp.add_handler(CommandHandler('b64d', decode))
 
     dp.add_handler(InlineQueryHandler(inline_query))
 
