@@ -1,0 +1,40 @@
+{
+  "name": "No PM Bot",
+  "description": "Modular  Telegram Bot Creator By: @i420Smoker",
+  "logo": "https://telegra.ph/file/55501e726922e79b8eea9.png",
+  "keywords": [
+    "telegram",
+    "bot",
+    "plugin",
+    "modular",
+    "productivity",
+    "relay",
+    "channel",
+    "administrators"
+  ],
+  "repository": "https://github.com/reejit/Base64-Coder-Bot",
+  "website": "https://telegram.dog/i420Smoker",
+  "success_url": "https://t.me/i420Smoker",
+  "env": {
+    "TOKEN": {
+      "description": "Get this value from my.telegram.org! Please do not steal"
+    },
+     "ENV": {
+      "description": "Get this value from my.telegram.org! Please do not steal"
+    }
+  "addons": [{
+    "plan": "heroku-postgresql",
+    "options": {
+      "version": "12"
+    }
+  }],
+  "buildpacks": [{
+    "url": "heroku/python"
+  }],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
+  }
+}
