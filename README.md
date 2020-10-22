@@ -4,6 +4,9 @@ A [Telegram](https://telegram.org) Bot for Base64 Encoding/Decoding.
 [Hhh](https://heroku.com/deploy?template=https://github.com/reejit/Base64-Coder-Bot)
 ### Inline is available!
 
+  [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/reejit/Base64-Coder-Bot.git)
+
+
 # Requirements:
 * Telegram token (use [@BotFather](https://t.me/botfather) to get one)
 * Linux: <code>pip3 install -r requirements.txt</code>
