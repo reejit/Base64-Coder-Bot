@@ -26,15 +26,17 @@ def html_escape(s):
 
 def start(update, context):
     context.bot.send_message(chat_id=update.message.chat_id,
-                             text="Commands:\n\n"
-                                  "BASE64_Encode: /b64e <code>some_text</code>\n"
-                                  "BASE64_Decode: /b64d <code>some_text</code>",
+                             text="Hey There \n\n"
+                                      "This bot can be used to encode text to Base64 language\n"
+                                      "So this bot can be used as a mean for secret language\n"
+                                       "To encode text in BASE64: <code>/b64e some_text</code>\n"
+                                       "To decode text from BASE64: <code>/b64d some_text</code>",
                              parse_mode=ParseMode.HTML)
 
 
 def b64encode(update, context):
     if len(update.message.text.split()) == 1:
-        update.message.reply_text("Use /b64e `some_text`", parse_mode=ParseMode.MARKDOWN)
+        update.message.reply_text("Use `/encode some_text`", parse_mode=ParseMode.MARKDOWN)
         return
     string = base64.b64encode(bytes(" ".join(update.message.text.split()[1:]), 'utf8')).decode()
     update.message.reply_text(string)
@@ -42,7 +44,7 @@ def b64encode(update, context):
 
 def b64decode(update, context):
     if len(update.message.text.split()) == 1:
-        update.message.reply_text("Use /b64d `some_text`", parse_mode=ParseMode.MARKDOWN)
+        update.message.reply_text("Use `/decode some_text`", parse_mode=ParseMode.MARKDOWN)
         return
 
     try:
@@ -60,7 +62,7 @@ def inline_query(update, context):
     enter_a_text = [InlineQueryResultArticle(id=uuid.uuid4(),
                                              title="Enter some text",
                                              input_message_content=InputTextMessageContent("Example: b** some text"),
-                                             description="Example: b64 some text")]
+                                             description="Example: /encode some text")]
 
     if len(query.query.split()) < 1 or query.query == '':
         make_a_choice = [InlineQueryResultArticle(id=uuid.uuid4(),
@@ -71,7 +73,7 @@ def inline_query(update, context):
         update.inline_query.answer(make_a_choice, cache_time=1, is_personal=True)
         return
 
-    if query.query.split()[0] == 'b16':
+    if query.query.split()[0] == 'encode':
         if len(query.query.split()) < 2:
             update.inline_query.answer(enter_a_text, cache_time=1, is_personal=True)
             return
@@ -292,8 +294,8 @@ def main():
     dp = updater.dispatcher
 
     dp.add_handler(CommandHandler('start', start))
-    dp.add_handler(CommandHandler('b64e', b64encode))
-    dp.add_handler(CommandHandler('b64d', b64decode))
+    dp.add_handler(CommandHandler('encode', encode))
+    dp.add_handler(CommandHandler('decode', decode))
 
     dp.add_handler(InlineQueryHandler(inline_query))
 
