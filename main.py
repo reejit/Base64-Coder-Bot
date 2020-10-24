@@ -34,6 +34,14 @@ def start(update, context):
                                        "Made by @lolboyisback",
                              parse_mode=ParseMode.HTML)
 
+def commands(update, context):
+    context.bot.send_message(chat_id=update.message.chat_id,
+                             text="Hey There \n\n"
+                                       "The commands for this bot are \n"
+                                       "/b64e for encoding text\n"
+                                       "/b64d for decoding text",
+                             parse_mode=ParseMode.HTML)
+
 
 def b64encode(update, context):
     if len(update.message.text.split()) == 1:
@@ -295,6 +303,7 @@ def main():
     dp = updater.dispatcher
 
     dp.add_handler(CommandHandler('start', start))
+    dp.add_handler(CommandHandler('commands', commands))
     dp.add_handler(CommandHandler('b64e', b64encode))
     dp.add_handler(CommandHandler('b64d', b64decode))
 
