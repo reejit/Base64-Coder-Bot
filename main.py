@@ -29,8 +29,7 @@ def start(update, context):
                              text="Hey There \n\n"
                                       "This bot can be used to encode text to Base64 language\n"
                                       "So this bot can be used as a mean for secret language\n"
-                                       "To encode text in BASE64:<code>/b64e</code> some_text\n"
-                                       "To decode text from BASE64: <code>/b64d</code> some_text\n"
+                                       "Send /commands to get a list of commands"
                                        "Made by @lolboyisback",
                              parse_mode=ParseMode.HTML)
 
